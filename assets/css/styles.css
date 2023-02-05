@@ -11,11 +11,12 @@ html {
 }
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     color: #fff;
-    background-color: #8D7ECE;
+    background: linear-gradient(180deg, #807ECE 0%, #8E7ECE 100%);
 }
 
 .calculate {
@@ -30,6 +31,26 @@ body {
     background: #2D2A37;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 188px 52px rgba(0, 0, 0, 0.01), 0px 120px 48px rgba(0, 0, 0, 0.04), 0px 68px 41px rgba(0, 0, 0, 0.15), 0px 30px 30px rgba(0, 0, 0, 0.26), 0px 8px 17px rgba(0, 0, 0, 0.29), inset 0px 6px 8px rgba(255, 255, 255, 0.1), inset 0px -4px 5px rgba(0, 0, 0, 0.22);
     border-radius: 48px;
+}
+
+.error {
+    padding: 10px 15px;
+    text-align: center;
+    background-color: #c62828  ;
+    border-radius: 8px;
+    margin-bottom: 1.2rem;
+    box-shadow: 1px 4px 15px rgba(0, 0, 0, 1);
+    transition: all .4s ease;
+    animation: fadein .4s ease both;
+
+    @keyframes fadein {
+        from {
+            opacity: .5;
+        }
+        to {
+            opacity: 1;
+        }
+    }
 }
 
 .screen {
@@ -56,12 +77,27 @@ body {
     width: 100%;
 }
 
+.screen-result input,
+.screen-calc input {
+    width: 100%;
+    height: 100%;
+    text-align: right;
+    background-color: transparent;
+    border: none;
+}
+
+#display-calc {
+    font-size: 1.2rem;
+}
+
 .equal {
     font-size: 1.7rem;
     color: rgba(255,255,255, .2);
 }
-.nums {
-    font-weight: 400;
+
+#result {
+    font-size: 2rem;
+    color: #EBEBEB;
 }
 
 .buttons {
@@ -72,37 +108,22 @@ body {
     width: 92%;
 }
 
-
-.bullet-wrapper {
-    border-radius: 50%;
-    box-shadow: 0px 5px 15px 2px rgba(59,56,68, .2);
-}
-
-.bullet {
-    width: 64px;
-    height: 64px;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%), #2D2A37;
-    box-shadow: 0px 11px 7px rgba(0, 0, 0, 0.01), 0px 7px 7px rgba(0, 0, 0, 0.04), 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 2px 4px rgba(0, 0, 0, 0.26), 0px 0px 2px rgba(0, 0, 0, 0.29), inset 0px 2px 3px rgba(255, 255, 255, 0.06);
-    border-radius: 999px;
-    cursor: pointer;
-    transition: all .2s ease;
-}
-.bullet:hover {
-    opacity: .8;
-}
-
 .bullet-content,
 .bullet-content-violet,
 .bullet-content-equlas {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
+    width: 64px;
+    height: 64px;
     font-size: 1.5rem;
-    color: #EBEBEB;
-    border-radius: 50%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%), #2D2A37;
+    box-shadow: 0px 11px 7px rgba(0, 0, 0, 0.01), 0px 7px 7px rgba(0, 0, 0, 0.04), 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 2px 4px rgba(0, 0, 0, 0.26), 0px 0px 2px rgba(0, 0, 0, 0.29), inset 0px 2px 3px rgba(255, 255, 255, 0.06), 0px 5px 15px 2px rgba(59,56,68, .2);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all .2s ease;
 }
+
 .color-violet {
     color: #975DFA;
 }
@@ -118,3 +139,14 @@ body {
     box-shadow: 0px 11px 7px rgba(0, 0, 0, 0.01), 0px 7px 7px rgba(0, 0, 0, 0.04), 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 2px 4px rgba(0, 0, 0, 0.26), 0px 0px 2px rgba(0, 0, 0, 0.29), inset 0px 2px 3px rgba(255, 255, 255, 0.1);
     border-radius: 999px;
 }
+
+.bullet-content:active {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0.05) 100%), #2D2A37;
+}
+.bullet-content-violet:active {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 00.1%, rgba(0, 0, 0, 0.05) 100%), #462878;
+}
+.bullet-content-equlas:active {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0.15) 100%), #7F45E2;
+}
+

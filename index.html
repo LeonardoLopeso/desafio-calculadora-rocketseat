@@ -6,138 +6,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 
 <body>
+    <div id="error"></div>
     <div class="calculate">
-
         <div class="screen">
             <div class="screen-result">
-                <span id="num1">1</span>
-                <span id="symbol">+</span>
-                <span id="num2">1</span>
+                <input type="text" disabled id="display-calc">
             </div>
             <div class="screen-calc">
                 <div class="equal">=</div>
-                <div class="nums">2</div>
+                <input type="text" disabled class="nums" id="result" value="0">
             </div>
         </div>
         <div class="buttons">
-            <div class="bullet-wrapper">
-                <div class="bullet">
-                    <div class="bullet-content color-violet">CE</div>
-                </div>
-            </div>
-            <div class="bullet-wrapper">
-                <div class="bullet">
-                    <div class="bullet-content">C</div>
-                </div>
-            </div>
-            <div class="bullet-wrapper">
-                <div class="bullet">
-                    <div class="bullet-content">%</div>
-                </div>
-            </div>
-            <div class="bullet-wrapper">
-                <div class="bullet">
-                    <div class="bullet-content bullet-content-violet">
-                        <img src="./assets/img/Divider.png" alt="Divider">
-                    </div>
-                </div>
-            </div>
-            <div class="bullet-wrapper">
-                <div class="bullet">
-                    <div class="bullet-content">7</div>
-                </div>
-            </div>
-            <div class="bullet-wrapper">
-                <div class="bullet">
-                    <div class="bullet-content">8</div>
-                </div>
-            </div>
-            <div class="bullet-wrapper">
-                <div class="bullet">
-                    <div class="bullet-content">9</div>
-                </div>
-            </div>
-            <div class="bullet-wrapper">
-                <div class="bullet">
-                    <div class="bullet-content bullet-content-violet">
-                        <img src="./assets/img/Multiplication.png" alt="Multiplication">
-                    </div>
-                </div>
-            </div>
-            <div class="bullet-wrapper">
-                <div class="bullet">
-                    <div class="bullet-content">4</div>
-                </div>
-            </div>
-            <div class="bullet-wrapper">
-                <div class="bullet">
-                    <div class="bullet-content">5</div>
-                </div>
-            </div>
-            <div class="bullet-wrapper">
-                <div class="bullet">
-                    <div class="bullet-content">6</div>
-                </div>
-            </div>
-            <div class="bullet-wrapper">
-                <div class="bullet">
-                    <div class="bullet-content bullet-content-violet">
-                        <img src="./assets/img/Minus.png" alt="Minus">
-                    </div>
-                </div>
-            </div>
-            <div class="bullet-wrapper">
-                <div class="bullet">
-                    <div class="bullet-content">1</div>
-                </div>
-            </div>
-            <div class="bullet-wrapper">
-                <div class="bullet">
-                    <div class="bullet-content">2</div>
-                </div>
-            </div>
-            <div class="bullet-wrapper">
-                <div class="bullet">
-                    <div class="bullet-content">3</div>
-                </div>
-            </div>
-            <div class="bullet-wrapper">
-                <div class="bullet">
-                    <div class="bullet-content bullet-content-violet">
-                        <img src="./assets/img/Plus.png" alt="Plus">
-                    </div>
-                </div>
-            </div>
-            <div class="bullet-wrapper">
-                <div class="bullet">
-                    <div class="bullet-content">
-                        <img src="./assets/img/Plus.png" alt="PlusMinus">
-                    </div>
-                </div>
-            </div>
-            <div class="bullet-wrapper">
-                <div class="bullet">
-                    <div class="bullet-content">0</div>
-                </div>
-            </div>
-            <div class="bullet-wrapper">
-                <div class="bullet">
-                    <div class="bullet-content">,</div>
-                </div>
-            </div>
-            <div class="bullet-wrapper">
-                <div class="bullet">
-                    <div class="bullet-content bullet-content-equlas">
-                        <img src="./assets/img/Equals.png" alt="Equals">
-                    </div>
-                </div>
-            </div>
+            <div class="bullet-content color-violet" onclick="delResult()">CE</div>        
+            <div class="bullet-content" onclick="clearShowResult()">C</div>        
+            <div class="bullet-content" onclick="getCalc('%')">%</div>        
+            <div class="bullet-content bullet-content-violet" onclick="getCalc('/')"><img src="./assets/img/Divider.png" alt="Divider"></div>        
+            <div class="bullet-content" onclick="getCalc(7)">7</div>
+            <div class="bullet-content" onclick="getCalc(8)">8</div>
+            <div class="bullet-content" onclick="getCalc(9)">9</div>
+            <div class="bullet-content bullet-content-violet" onclick="getCalc('*')"><img src="./assets/img/Multiplication.png" alt="Multiplication"></div>
+            <div class="bullet-content" onclick="getCalc(4)">4</div>
+            <div class="bullet-content" onclick="getCalc(5)">5</div>
+            <div class="bullet-content" onclick="getCalc(6)">6</div>
+            <div class="bullet-content bullet-content-violet" onclick="getCalc('-')"><img src="./assets/img/Minus.png" alt="Minus"></div>
+            <div class="bullet-content" onclick="getCalc(1)">1</div>
+            <div class="bullet-content" onclick="getCalc(2)">2</div>
+            <div class="bullet-content" onclick="getCalc(3)">3</div>
+            <div class="bullet-content bullet-content-violet" onclick="getCalc('+')"><img src="./assets/img/Plus.png" alt="Plus"></div>
+            <div class="bullet-content" onclick="round()"><img src="./assets/img/PlusMinus.png" alt="PlusMinus"></div>
+            <div class="bullet-content" onclick="getCalc(0)">0</div>
+            <div class="bullet-content" onclick="getCalc('.')">,</div>
+            <div class="bullet-content bullet-content-equlas" onclick="result()"><img src="./assets/img/Equals.png" alt="Equals"></div>
         </div>
     </div>
+    <script src="assets/js/index.js"></script>
 </body>
 
 </html>
